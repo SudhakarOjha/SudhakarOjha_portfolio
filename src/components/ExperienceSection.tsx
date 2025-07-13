@@ -14,11 +14,12 @@ const ExperienceSection: React.FC = () => {
         'Integrated ML and web development'
       ],
       technologies: ['Docker', 'Kubernetes', 'Jenkins', 'GitHub'],
-      highlightWord: 'World'
+      highlightWord: 'World',
+      borderColor: 'border-green-400'
     },
     {
       company: 'CodeAlpha',
-      role: 'Cloud Intern',
+      role: 'Web development Project Intern',
       location: 'Lucknow, Uttar Pradesh',
       duration: 'April 2024 - July 2024',
       achievements: [
@@ -27,7 +28,8 @@ const ExperienceSection: React.FC = () => {
         'Learned API key usage and client integration'
       ],
       technologies: ['React.js', 'JavaScript', 'CSS', 'HTML'],
-      highlightWord: 'Alpha'
+      highlightWord: 'Alpha',
+      borderColor: 'border-yellow-400'
     },
     {
       company: 'Learn&Build',
@@ -40,7 +42,8 @@ const ExperienceSection: React.FC = () => {
         'Contribute in CICD project'
       ],
       technologies: ['Jenkins', 'Docker', 'AWS CLI', 'EC2', 'S3', 'RDS', 'Git&GitHub'],
-      highlightWord: 'Learn'
+      highlightWord: 'Learn',
+      borderColor: 'border-red-400'
     },
     {
       company: 'Learn&Build',
@@ -53,7 +56,8 @@ const ExperienceSection: React.FC = () => {
         'Enhance knowledge of java basic'
       ],
       technologies: ['Java OOPs'],
-      highlightWord: 'Learn'
+      highlightWord: 'Learn',
+      borderColor: 'border-red-800'
     }
   ];
 
@@ -69,7 +73,7 @@ const ExperienceSection: React.FC = () => {
 
         <div className="space-y-12">
           {experiences.map((exp, index) => (
-            <div key={index} className="group bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:border-blue-400/50 transition-all duration-300">
+            <div key={index} className={`group bg-white/5 backdrop-blur-sm rounded-xl p-8 border-2 ${exp.borderColor} hover:scale-105 transition-all duration-300`}>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Company Info */}
                 <div className="space-y-4">

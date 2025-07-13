@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Download, Code, Trophy } from 'lucide-react';
+import profileImage from '../assets/profile.jpg';
 
 const HeroSection: React.FC = () => {
   const [currentText, setCurrentText] = useState('');
@@ -87,7 +88,7 @@ const HeroSection: React.FC = () => {
             <div className="w-80 h-80 rounded-2xl bg-gradient-to-br from-blue-400 via-purple-400 to-green-400 p-1 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] group-hover:scale-105">
               <div className="w-full h-full bg-gray-800 rounded-2xl overflow-hidden">
                 <img
-                  src="https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  src={profileImage}
                   alt="Sudhakar Ojha"
                   className="w-full h-full object-cover"
                 />
