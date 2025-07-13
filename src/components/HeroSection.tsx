@@ -48,18 +48,17 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
 
-         <div className="flex flex-col sm:flex-row gap-4">
-  <a
-    href="https://drive.google.com/file/d/1hrjHAOuL2OKslblFa1Vgnzoz8EcPkNjR/view?usp=drivesdk"  // 👉 Replace this with your actual resume path
-    download="Sudhakar_Ojha_Resume.pdf"
-    className="group relative px-8 py-4 bg-transparent border-2 border-blue-400 rounded-full text-blue-400 font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 flex items-center gap-2"
-  >
-    <Download className="w-5 h-5" />
-    Download Resume
-    <span className="absolute inset-0 border-2 border-blue-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"></span>
-  </a>
-</div>
-
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="https://drive.google.com/file/d/1hrjHAOuL2OKslblFa1Vgnzoz8EcPkNjR/view?usp=drivesdk"
+              download="Sudhakar_Ojha_Resume.pdf"
+              className="group relative px-8 py-4 bg-transparent border-2 border-blue-400 rounded-full text-blue-400 font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 flex items-center gap-2"
+            >
+              <Download className="w-5 h-5" />
+              Download Resume
+              <span className="absolute inset-0 border-2 border-blue-400 rounded-full opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"></span>
+            </a>
+          </div>
 
           <div className="flex gap-6">
             {[
@@ -81,29 +80,22 @@ const HeroSection: React.FC = () => {
             ))}
           </div>
         </div>
-<div className="flex justify-between items-center w-full px-8 py-4">
-  {/* LEFT SECTION (Text content, for example) */}
-  <div className="text-left">
-    <h1 className="text-4xl font-bold text-white mb-2">
-      Hello everyone, I am <span className="animate-pulse text-blue-400">Sudhakar Ojha</span>
-    </h1>
-    <p className="text-lg text-gray-300">DevOps & Cloud Engineer</p>
-  </div>
 
-  {/* RIGHT SECTION (Image) */}
-  <div className="relative">
-    <div className="w-52 h-52 rounded-full bg-gradient-to-br from-blue-400 via-purple-400 to-green-400 p-1">
-      <div className="w-full h-full bg-gray-800 rounded-full overflow-hidden">
-        <img
-          src="https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=800"
-          alt="Sudhakar Ojha"
-          className="w-full h-full object-cover"
-        />
-      </div>
-    </div>
-    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-green-400/20 animate-pulse"></div>
-  </div>
-</div>
+        {/* Right Section - Profile Image */}
+        <div className="flex justify-center lg:justify-end">
+          <div className="relative group">
+            <div className="w-80 h-80 rounded-2xl bg-gradient-to-br from-blue-400 via-purple-400 to-green-400 p-1 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] group-hover:scale-105">
+              <div className="w-full h-full bg-gray-800 rounded-2xl overflow-hidden">
+                <img
+                  src="https://images.pexels.com/photos/3778876/pexels-photo-3778876.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Sudhakar Ojha"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-green-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </div>
+        </div>
       </div>
     </section>
   );

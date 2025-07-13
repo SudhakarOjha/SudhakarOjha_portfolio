@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Zap } from 'lucide-react';
+import { MapPin, Zap, Calendar } from 'lucide-react';
 
 const ExperienceSection: React.FC = () => {
   const experiences = [
@@ -7,6 +7,7 @@ const ExperienceSection: React.FC = () => {
       company: 'LinuxWorld Informatics Pvt Ltd',
       role: 'Cloud Intern',
       location: 'Jaipur, Rajasthan',
+      duration: 'June 2025 - August 2025',
       achievements: [
         'Built an automated end-to-end pipeline for continuous delivery',
         'Learned to work with diverse technologies',
@@ -19,6 +20,7 @@ const ExperienceSection: React.FC = () => {
       company: 'CodeAlpha',
       role: 'Cloud Intern',
       location: 'Lucknow, Uttar Pradesh',
+      duration: 'April 2024 - July 2024',
       achievements: [
         'Contributed to assigned tasks',
         'Worked with frontend development team',
@@ -26,6 +28,32 @@ const ExperienceSection: React.FC = () => {
       ],
       technologies: ['React.js', 'JavaScript', 'CSS', 'HTML'],
       highlightWord: 'Alpha'
+    },
+    {
+      company: 'Learn&Build',
+      role: 'AWS Cloud Intern',
+      location: 'Jaipur',
+      duration: 'July 2024 - August 2024',
+      achievements: [
+        'Worked on AWS services like EC2 and S3 and Relational database service',
+        'Learn to integrate the services with automation tools',
+        'Contribute in CICD project'
+      ],
+      technologies: ['Jenkins', 'Docker', 'AWS CLI', 'EC2', 'S3', 'RDS', 'Git&GitHub'],
+      highlightWord: 'Learn'
+    },
+    {
+      company: 'Learn&Build',
+      role: 'Java Trainee',
+      location: 'Jaipur',
+      duration: 'July 2023',
+      achievements: [
+        'Understand the Object Oriented Programming concept',
+        'Complete the individual tasks(ex - Hangman game, Guess the number etc)',
+        'Enhance knowledge of java basic'
+      ],
+      technologies: ['Java OOPs'],
+      highlightWord: 'Learn'
     }
   ];
 
@@ -42,7 +70,7 @@ const ExperienceSection: React.FC = () => {
         <div className="space-y-12">
           {experiences.map((exp, index) => (
             <div key={index} className="group bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:border-blue-400/50 transition-all duration-300">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Company Info */}
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold text-white">
@@ -62,10 +90,15 @@ const ExperienceSection: React.FC = () => {
                     <MapPin className="w-4 h-4" />
                     <span>{exp.location}</span>
                   </div>
+
+                  <div className="flex items-center gap-2 text-gray-300">
+                    <Calendar className="w-4 h-4" />
+                    <span>{exp.duration}</span>
+                  </div>
                 </div>
 
                 {/* Achievements */}
-                <div className="space-y-4">
+                <div className="lg:col-span-2 space-y-4">
                   <div className="group-hover:animate-pulse border-2 border-transparent group-hover:border-blue-400 rounded-lg p-4 bg-white/5 transition-all duration-300">
                     <h5 className="text-lg font-semibold text-white mb-3">Key Achievements</h5>
                     <ul className="space-y-2">
@@ -82,7 +115,7 @@ const ExperienceSection: React.FC = () => {
                     {exp.technologies.map((tech, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium border border-blue-500/30"
+                        className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm font-medium border border-blue-500/30 hover:bg-blue-500/30 hover:scale-105 transition-all duration-300"
                       >
                         {tech}
                       </span>
