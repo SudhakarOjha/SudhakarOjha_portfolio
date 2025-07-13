@@ -1,65 +1,97 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import resumeFile from '../assets/documents/Sudhakar_Ojha_Resume.pdf';
+
+const navLinks = [
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Experience', href: '#experience' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Certificates', href: '#certificates' },
+  { name: 'Contact', href: '#contact' },
+];
 
 const Navigation: React.FC = () => {
-  const [activeSection, setActiveSection] = useState('home');
-
-  const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About Me' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'certificates', label: 'Certificates' },
-    { id: 'contact', label: 'Contact' }
-  ];
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = navItems.map(item => document.getElementById(item.id));
-      const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        if (section && section.offsetTop <= scrollPosition) {
-          setActiveSection(navItems[i].id);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 right-0 z-50 p-6">
-      <div className="bg-white/10 backdrop-blur-md rounded-full px-6 py-3 shadow-lg">
-        <ul className="flex space-x-8">
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <button
-                onClick={() => scrollToSection(item.id)}
-                className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 ${
-                  activeSection === item.id
-                    ? 'text-blue-300'
-                    : 'text-white hover:text-blue-200'
-                }`}
+    <nav className="fixed top-0 left-0 w-full z-50 bg-gray-900/80 backdrop-blur-md shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex-shrink-0 flex items-center gap-2">
+            <span className="text-2xl font-bold text-blue-400">SO</span>
+            <span className="hidden sm:inline text-lg font-semibold text-white">Sudhakar Ojha</span>
+          </div>
+          <div className="hidden md:flex md:items-center md:gap-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-white hover:text-blue-400 font-medium transition-colors duration-200"
               >
-                {item.label}
-                {activeSection === item.id && (
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-300 rounded-full"></span>
+                {link.name}
+              </a>
+            ))}
+            {/* Resume Download Button */}
+            <a
+              href={resumeFile}
+              download="Sudhakar_Ojha_Resume.pdf"
+              className="ml-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-semibold shadow hover:from-blue-600 hover:to-purple-600 transition-all duration-300 border-2 border-transparent hover:border-blue-400"
+            >
+              Resume
+            </a>
+          </div>
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-gray-300 hover:text-white focus:outline-none focus:text-white"
+            >
+              <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                {isOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 )}
-              </button>
-            </li>
-          ))}
-        </ul>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
+      {/* Mobile menu */}
+      {isOpen && (
+        <div className="md:hidden bg-gray-900/95 px-2 pt-2 pb-3 space-y-1">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-blue-400 transition-colors duration-200"
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </a>
+          ))}
+          {/* Resume Download Button for mobile */}
+          <a
+            href={resumeFile}
+            download="Sudhakar_Ojha_Resume.pdf"
+            className="block mt-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full font-semibold shadow hover:from-blue-600 hover:to-purple-600 transition-all duration-300 border-2 border-transparent hover:border-blue-400 text-center"
+            onClick={() => setIsOpen(false)}
+          >
+            Resume
+          </a>
+        </div>
+      )}
     </nav>
   );
 };

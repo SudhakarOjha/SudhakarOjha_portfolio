@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Download, Code, Trophy } from 'lucide-react';
 import profileImage from '../assets/profile.jpg';
+import resumeFile from '../assets/documents/Sudhakar_Ojha_Resume.pdf';
 
 const HeroSection: React.FC = () => {
   const [currentText, setCurrentText] = useState('');
@@ -51,7 +52,7 @@ const HeroSection: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="https://drive.google.com/file/d/1hrjHAOuL2OKslblFa1Vgnzoz8EcPkNjR/view?usp=drivesdk"
+              href={resumeFile}
               download="Sudhakar_Ojha_Resume.pdf"
               className="group relative px-8 py-4 bg-transparent border-2 border-blue-400 rounded-full text-blue-400 font-semibold hover:bg-blue-400 hover:text-white transition-all duration-300 flex items-center gap-2"
             >
