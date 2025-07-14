@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lightbulb, Rocket, BookOpen } from 'lucide-react';
+import { Lightbulb, Rocket, BookOpen, ArrowUp, ArrowDown } from 'lucide-react';
 
 const AboutSection: React.FC = () => {
   const features = [
@@ -35,8 +35,20 @@ const AboutSection: React.FC = () => {
   return (
     <section id="about" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">About Me</h2>
+        <div className="text-center mb-16 flex flex-col items-center">
+          <div className="flex items-center justify-center gap-4">
+            {/* Left vertical arrows */}
+            <div className="flex flex-col items-center">
+              <ArrowUp className="w-6 h-6 text-pink-400" />
+              <ArrowDown className="w-6 h-6 text-blue-400" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 mx-4">About Me</h2>
+            {/* Right vertical arrows */}
+            <div className="flex flex-col items-center">
+              <ArrowUp className="w-6 h-6 text-green-400" />
+              <ArrowDown className="w-6 h-6 text-purple-400" />
+            </div>
+          </div>
           <p className="text-xl text-blue-200">
             Driven by{' '}
             <span className="relative inline-block">

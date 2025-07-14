@@ -64,20 +64,25 @@ const HeroSection: React.FC = () => {
 
           <div className="flex gap-6">
             {[
-              { icon: Github, label: 'GitHub', url: 'https://github.com/SudhakarOjha' },
-              { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/sudhakar-ojha-66b264258/' },
-              { icon: Code, label: 'LeetCode', url: 'https://leetcode.com/u/sudhakarojha19/' },
-              { icon: Trophy, label: 'HackerRank', url: 'https://www.hackerrank.com/profile/sudhakarojha19' }
+              { icon: Github, label: 'GitHub', url: 'https://github.com/SudhakarOjha', color: 'bg-black text-white', hover: 'hover:bg-black hover:text-white', tooltip: 'bg-black text-white' },
+              { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/sudhakar-ojha-66b264258/', color: 'bg-blue-600 text-white', hover: 'hover:bg-blue-600 hover:text-white', tooltip: 'bg-blue-600 text-white' },
+              { icon: Code, label: 'LeetCode', url: 'https://leetcode.com/u/sudhakarojha19/', color: 'bg-orange-400 text-white', hover: 'hover:bg-orange-400 hover:text-white', tooltip: 'bg-orange-400 text-white' },
+              { icon: Trophy, label: 'HackerRank', url: 'https://www.hackerrank.com/profile/sudhakarojha19', color: 'bg-green-600 text-white', hover: 'hover:bg-green-600 hover:text-white', tooltip: 'bg-green-600 text-white' }
             ].map((social, index) => (
               <a
                 key={index}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative p-4 bg-white/5 rounded-full border border-white/10 hover:border-blue-400 transition-all duration-300 hover:scale-110"
+                className={`group relative p-4 rounded-full border border-white/10 transition-all duration-300 hover:scale-110 ${social.color} ${social.hover}`}
               >
-                <social.icon className="w-6 h-6 text-white group-hover:text-blue-400 transition-colors duration-300" />
-                <div className="absolute inset-0 bg-blue-400/20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <social.icon className="w-6 h-6" />
+                {/* Tooltip */}
+                <div className={`absolute left-1/2 -translate-x-1/2 mt-3 px-3 py-1 rounded shadow-lg text-xs font-semibold opacity-0 group-hover:opacity-100 pointer-events-none transition-all duration-200 z-20 ${social.tooltip}`}
+                  style={{ bottom: '-2.5rem', whiteSpace: 'nowrap' }}
+                >
+                  {social.label}
+                </div>
               </a>
             ))}
           </div>
