@@ -14,7 +14,7 @@ const ContactSection: React.FC = () => {
     
     try {
       // Using Formspree - a free email service
-      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+      const response = await fetch('https://formspree.io/f/xrblgbqn', {
         method: 'POST',
         body: formData,
         headers: {
@@ -41,9 +41,23 @@ const ContactSection: React.FC = () => {
     <section id="contact" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Contact</h2>
-          <p className="text-xl text-blue-200">
-            Let's connect and build something amazing together
+          <div className="relative flex flex-col items-center justify-center py-8">
+            {/* Radiating signal circles background */}
+            <div className="absolute inset-0 flex justify-center items-center z-0 pointer-events-none">
+              {[...Array(3)].map((_, i) => (
+                <span key={i} className={`absolute rounded-full border-2 border-pink-400 opacity-30 animate-signal`} style={{width:`${6+4*i}rem`,height:`${6+4*i}rem`,animationDelay:`${i*0.5}s`}}></span>
+              ))}
+            </div>
+            {/* Mail icon with wave */}
+            <div className="flex items-center gap-3 z-10">
+              <span className="relative flex items-center">
+                <Mail className="w-10 h-10 text-purple-400 animate-wave" />
+              </span>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_0_16px_#a78bfa] tracking-wide bg-gradient-to-r from-purple-400 via-pink-400 to-teal-400 bg-clip-text text-transparent animate-ripple">Contact</h2>
+            </div>
+          </div>
+          <p className="text-xl font-semibold bg-gradient-to-r from-purple-400 via-pink-400 to-teal-400 bg-clip-text text-transparent animate-ripple mt-2">
+            Let’s connect and create something extraordinary together.
           </p>
         </div>
 
@@ -117,81 +131,84 @@ const ContactSection: React.FC = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:border-blue-400/50 transition-all duration-300">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
-                  placeholder="Your name"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  required
-                  rows={4}
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
-                  placeholder="Your message..."
-                ></textarea>
-              </div>
+          <div className="relative">
+            <div className="absolute inset-0 rounded-xl pointer-events-none z-10 animate-sparkle-border" style={{boxShadow:'0 0 24px 6px #f472b6, 0 0 48px 12px #a78bfa, 0 0 32px 8px #06b6d4'}}></div>
+            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:border-blue-400/50 transition-all duration-300 relative z-20">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                    placeholder="Your name"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={4}
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300"
+                    placeholder="Your message..."
+                  ></textarea>
+                </div>
 
-              {/* Status Messages */}
-              {submitStatus === 'success' && (
-                <div className="p-3 bg-green-500/20 border border-green-500/30 rounded-lg text-green-400">
-                  Thank you! Your message has been sent successfully. I'll get back to you soon!
-                </div>
-              )}
-              
-              {submitStatus === 'error' && (
-                <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg text-red-400">
-                  Sorry, there was an error sending your message. Please try again or contact me directly.
-                </div>
-              )}
-              
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 disabled:from-gray-500 disabled:to-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? (
-                  <>
-                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                    Sending...
-                  </>
-                ) : (
-                  <>
-                    <Send className="w-5 h-5" />
-                    Send Message
-                  </>
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="p-3 bg-green-500/20 border border-green-500/30 rounded-lg text-green-400">
+                    Thank you! Your message has been sent successfully. I'll get back to you soon!
+                  </div>
                 )}
-              </button>
-            </form>
+                
+                {submitStatus === 'error' && (
+                  <div className="p-3 bg-red-500/20 border border-red-500/30 rounded-lg text-red-400">
+                    Sorry, there was an error sending your message. Please try again or contact me directly.
+                  </div>
+                )}
+                
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 disabled:from-gray-500 disabled:to-gray-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Send Message
+                    </>
+                  )}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

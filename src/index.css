@@ -41,3 +41,23 @@ html {
 * {
   transition: all 0.2s ease-in-out;
 }
+
+/* Sparkle animation for 2.5s */
+@keyframes sparkle-fast {
+  0% { filter: brightness(1.2) blur(2px); opacity: 0.7; }
+  50% { filter: brightness(2.5) blur(3px); opacity: 1; }
+  100% { filter: brightness(1.2) blur(2px); opacity: 0.7; }
+}
+.animate-sparkle-fast {
+  animation: sparkle-fast 2.5s linear infinite;
+}
+
+/* Sparkle animation for 3s */
+@keyframes sparkle-slow {
+  0% { filter: brightness(1.2) blur(2px); opacity: 0.7; }
+  50% { filter: brightness(2.5) blur(3px); opacity: 1; }
+  100% { filter: brightness(1.2) blur(2px); opacity: 0.7; }
+}
+.animate-sparkle-slow {
+  animation: sparkle-slow 3s linear infinite;
+}

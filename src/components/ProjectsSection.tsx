@@ -1,5 +1,5 @@
 import React from 'react';
-import { GitBranch, Bot, Building, ExternalLink, Github, Globe } from 'lucide-react';
+import { GitBranch, Bot, Building, ExternalLink, Github, Globe, Rocket } from 'lucide-react';
 
 const ProjectsSection: React.FC = () => {
   const projects = [
@@ -30,7 +30,7 @@ const ProjectsSection: React.FC = () => {
     {
       title: 'End-to-End Automated CI/CD Pipeline',
       association: 'LinuxWorld Informatics Pvt Ltd',
-      description: 'Implemented a complete CI/CD pipeline for automated testing, building, and deployment processes using Jenkins and Docker.',
+      description: 'A CI/CD pipeline project using Jenkins, Docker and GitHub.',
       technologies: ['Javascript', 'Git/GitHub', 'Jenkins', 'Docker', 'CLI', 'AWS EC2'],
       keyFeatures: ['Automated testing & building via Jenkins', 'Pulled code from GitHub SCM', 'Deployed from source to AWS EC2'],
       liveDemo: 'https://your-cicd-pipeline-url.com', // Replace with your actual deployed URL
@@ -47,6 +47,15 @@ const ProjectsSection: React.FC = () => {
         'Assigned system role to provide guided help to users',
         'Integrated natural language processing for personalized coaching'
       ],
+      technologies: ['Gemini 2.5 API', 'Python', 'Prompt Engineering', 'Gradio'],
+      keyFeatures: [
+        'Conversational AI with Gemini 2.5',
+        'Personalized coaching via system role',
+        'Natural language understanding',
+        'Seamless integration with DevOps tools'
+      ],
+      githubCode: 'https://www.linkedin.com/posts/sudhakar-ojha-66b264258_linuxworld-vimaldaga-promptengineering-activity-7347689335510454273-rQhb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9l3LMBP8OTGlFx7qY7e3Wc_QaQJ_cqcXs',
+      githubRepo: 'https://github.com/SudhakarOjha/personality_developer_GenAI_API_gradio',
       icon: Bot,
       color: 'orange',
       gradientBorder: 'from-orange-400 via-red-400 to-orange-600'
@@ -67,7 +76,25 @@ const ProjectsSection: React.FC = () => {
     <section id="projects" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Projects</h2>
+          <div className="relative flex flex-col items-center justify-center py-8">
+            {/* Animated stars/particles background */}
+            <div className="absolute inset-0 flex justify-center items-center z-0 pointer-events-none">
+              {[...Array(12)].map((_, i) => (
+                <span key={i} className={`absolute w-1 h-1 rounded-full bg-yellow-300 opacity-70 animate-pulse`} style={{left:`${10+Math.random()*80}%`,top:`${10+Math.random()*80}%`,animationDelay:`${i*0.2}s`}}></span>
+              ))}
+            </div>
+            {/* Rocket launch icon with comet tail */}
+            <div className="flex items-center gap-3 z-10">
+              <span className="relative flex items-center">
+                <Rocket className="w-10 h-10 text-orange-400 animate-bounce" />
+                <span className="absolute left-6 top-1/2 -translate-y-1/2 w-16 h-2 bg-gradient-to-r from-yellow-400 via-pink-400 to-orange-400 blur-md opacity-80 animate-comet" style={{zIndex:-1}}></span>
+              </span>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-[0_0_16px_#fbbf24] tracking-wide bg-gradient-to-r from-orange-400 via-yellow-400 to-pink-400 bg-clip-text text-transparent animate-gradient-x">Projects</h2>
+            </div>
+          </div>
+          <p className="text-xl font-semibold bg-gradient-to-r from-orange-400 via-yellow-400 to-pink-400 bg-clip-text text-transparent animate-pulse mt-2">
+            Launching ideas into reality, one project at a time.
+          </p>
         </div>
 
         <div className="relative">
@@ -169,6 +196,21 @@ const ProjectsSection: React.FC = () => {
                                 Live Demo
                                 <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                               </a>
+                              {/* Add View on LinkedIn button for End-to-End Automated CI/CD Pipeline */}
+                              {project.title === 'End-to-End Automated CI/CD Pipeline' && (
+                                <a
+                                  href={project.githubCode}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="group flex items-center gap-2 px-6 py-3 bg-blue-600/90 border border-blue-400/50 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700/90 hover:border-blue-500/70 shadow-lg"
+                                >
+                                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                  </svg>
+                                  View on LinkedIn
+                                  <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                                </a>
+                              )}
                               
                               <a
                                 href={project.githubCode}
@@ -187,7 +229,7 @@ const ProjectsSection: React.FC = () => {
                                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                     </svg>
-                                    View Post
+                                    View Code
                                   </>
                                 ) : (
                                   <>
@@ -203,13 +245,78 @@ const ProjectsSection: React.FC = () => {
                       ) : (
                         /* Regular project layout */
                         <ul className="space-y-2">
-                          {Array.isArray(project.description) ? project.description.map((item, i) => (
-                            <li key={i} className="text-gray-300 flex items-start gap-2">
-                              <span className="w-2 h-2 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
-                              <span>{item}</span>
-                            </li>
-                          )) : (
-                            <li className="text-gray-300">{project.description}</li>
+                          {project.title === 'AI Assistant – Personality Developer Coach' && (
+                            <div className="absolute right-6 bottom-6 flex flex-col gap-3 z-20">
+                              <a
+                                href={project.githubCode}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-center gap-2 px-6 py-3 bg-blue-600/90 border border-blue-400/50 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700/90 hover:border-blue-500/70 shadow-lg"
+                              >
+                                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                                View on LinkedIn
+                                <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                              </a>
+                              <a
+                                href={project.githubRepo}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/20 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:border-orange-400/50"
+                              >
+                                <Github className="w-4 h-4" />
+                                View on GitHub
+                                <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+                              </a>
+                            </div>
+                          )}
+                          {project.title === 'AI Assistant – Personality Developer Coach' ? null : (
+                            Array.isArray(project.description) ? (
+                              <ul className="space-y-2">
+                                {project.description.map((item, i) => (
+                                  <li key={i} className="text-gray-300 flex items-start gap-2">
+                                    <span className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                                      project.title === 'Sudhakar Ojha Portfolio' ? 'bg-purple-400' : 
+                                      project.title === 'Flask API-CI/CD' ? 'bg-blue-400' : 'bg-green-400'
+                                    }`}></span>
+                                    <span>{item}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <li className="text-gray-300">{project.description}</li>
+                            )
+                          )}
+                          {/* Technologies for Personality Developer Coach */}
+                          {project.technologies && (
+                            <div className="space-y-2 mt-4">
+                              <h4 className="text-lg font-semibold text-white">Technologies Used:</h4>
+                              <div className="flex flex-wrap gap-2">
+                                {project.technologies.map((tech, i) => (
+                                  <span
+                                    key={i}
+                                    className="px-3 py-1 rounded-full text-sm font-medium border border-orange-400/30 bg-orange-500/20 text-orange-300 hover:bg-orange-500/30 hover:scale-105 transition-all duration-300"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                          {/* Key Features for Personality Developer Coach */}
+                          {project.keyFeatures && (
+                            <div className="space-y-2 mt-4">
+                              <h4 className="text-lg font-semibold text-white">Key Features:</h4>
+                              <ul className="space-y-1">
+                                {project.keyFeatures.map((feature, i) => (
+                                  <li key={i} className="text-gray-300 flex items-start gap-2">
+                                    <span className="w-2 h-2 bg-orange-400 rounded-full mt-2 flex-shrink-0"></span>
+                                    <span>{feature}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
                           )}
                         </ul>
                       )}

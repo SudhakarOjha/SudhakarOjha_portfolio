@@ -39,14 +39,14 @@ const AboutSection: React.FC = () => {
           <div className="flex items-center justify-center gap-4">
             {/* Left vertical arrows */}
             <div className="flex flex-col items-center">
-              <ArrowUp className="w-6 h-6 text-pink-400" />
-              <ArrowDown className="w-6 h-6 text-blue-400" />
+              <ArrowUp className="w-8 h-8 animate-bounce text-pink-400 drop-shadow-[0_0_8px_#f472b6]" />
+              <ArrowDown className="w-8 h-8 animate-pulse text-blue-400 drop-shadow-[0_0_8px_#60a5fa]" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 mx-4">About Me</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 mx-4 bg-gradient-to-r from-pink-400 via-yellow-400 to-purple-500 bg-clip-text text-transparent animate-pulse drop-shadow-lg">About Me</h2>
             {/* Right vertical arrows */}
             <div className="flex flex-col items-center">
-              <ArrowUp className="w-6 h-6 text-green-400" />
-              <ArrowDown className="w-6 h-6 text-purple-400" />
+              <ArrowUp className="w-8 h-8 animate-bounce text-green-400 drop-shadow-[0_0_8px_#34d399]" />
+              <ArrowDown className="w-8 h-8 animate-pulse text-purple-400 drop-shadow-[0_0_8px_#a78bfa]" />
             </div>
           </div>
           <p className="text-xl text-blue-200">
@@ -66,7 +66,7 @@ const AboutSection: React.FC = () => {
           <div className="space-y-6">
             <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10">
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm an aspiring software engineer currently pursuing academics in AI and Robotics. 
+                I'm an aspiring software engineer currently pursuing academics in Computer Science and Engineering. 
                 With a strong foundation in DevOps, Cloud, and Applied Machine Learning, I thrive on 
                 building real-world applications that make a difference.
               </p>

@@ -68,9 +68,16 @@ const SkillsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Skills & Expertise Section */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Skills & Expertise</h2>
-          <p className="text-xl text-blue-200">
-            A comprehensive toolkit for modern development, deployment and AI integration
+          <div className="relative flex flex-col items-center gap-8">
+            <div>
+              <div className="relative inline-block px-8 py-4 rounded-full bg-gradient-to-r from-pink-400 via-yellow-200 to-orange-400 shadow-xl border border-pink-300/40 animate-cloud-float ring-4 ring-transparent ring-offset-2 ring-offset-pink-200 overflow-visible">
+                <span className="absolute inset-0 rounded-full pointer-events-none z-10 animate-sparkle-fast bg-[conic-gradient(from_0deg,theme(colors.pink.400),theme(colors.yellow.300),theme(colors.orange.400),theme(colors.pink.400))] opacity-80 blur-[2px]" style={{maskImage:'linear-gradient(white,white)'}}></span>
+                <h2 className="relative z-20 text-4xl md:text-5xl font-bold bg-gradient-to-r from-pink-500 via-yellow-400 to-orange-500 bg-clip-text text-transparent drop-shadow-lg">Skills & Expertise</h2>
+              </div>
+            </div>
+          </div>
+          <p className="text-xl text-blue-200 mt-4">
+            A comprehensive <span className="font-bold underline decoration-pink-400 decoration-2 underline-offset-4 text-pink-400">toolkit</span> for <span className="font-bold underline decoration-yellow-400 decoration-2 underline-offset-4 text-yellow-400">modern development</span>, <span className="font-bold underline decoration-green-400 decoration-2 underline-offset-4 text-green-400">deployment</span> and <span className="font-bold underline decoration-purple-400 decoration-2 underline-offset-4 text-purple-400">AI integration</span>
           </p>
         </div>
 

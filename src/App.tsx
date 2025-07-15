@@ -9,8 +9,17 @@ import ProjectsSection from './components/ProjectsSection';
 import CertificatesSection from './components/CertificatesSection';
 import ContactSection from './components/ContactSection';
 import LiveWorkSection from './components/LiveWorkSection';
+import Loader from './components/Loader';
 
 function App() {
+  const [loading, setLoading] = React.useState(true);
+  React.useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loader />;
+
   return (
     <div className="relative min-h-screen text-white overflow-x-hidden">
       <AnimatedBackground />

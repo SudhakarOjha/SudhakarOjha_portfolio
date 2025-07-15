@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Zap, Calendar } from 'lucide-react';
+import { MapPin, Zap, Calendar, Briefcase } from 'lucide-react';
 
 const ExperienceSection: React.FC = () => {
   const experiences = [
@@ -65,9 +65,15 @@ const ExperienceSection: React.FC = () => {
     <section id="experience" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Experience</h2>
-          <p className="text-xl text-blue-200">
-            Building innovative solutions and driving automated impact
+          <div className="inline-block relative px-8 py-4 rounded-full bg-gradient-to-r from-green-900/80 via-blue-900/80 to-purple-900/80 shadow-xl border border-green-400/30 ring-4 ring-green-400/30 ring-offset-2 ring-offset-blue-900 animate-cloud-float">
+            <div className="flex items-center justify-center gap-3">
+              <Briefcase className="w-8 h-8 text-green-300 animate-bounce drop-shadow-[0_0_8px_#34d399]" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-0">Experience</h2>
+            </div>
+            <span className="absolute left-0 right-0 -bottom-2 h-1 bg-gradient-to-r from-green-400 via-blue-400 to-purple-400 animate-pulse rounded-full"></span>
+          </div>
+          <p className="text-xl font-semibold bg-gradient-to-r from-red-500 via-orange-400 to-yellow-300 bg-clip-text text-transparent animate-shine mt-2">
+            Crafting expertise through real-world impact.
           </p>
         </div>
 
