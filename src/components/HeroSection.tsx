@@ -66,8 +66,8 @@ const HeroSection: React.FC = () => {
             {[
               { icon: Github, label: 'GitHub', url: 'https://github.com/SudhakarOjha', color: 'bg-black text-white', hover: 'hover:bg-black hover:text-white', tooltip: 'bg-black text-white' },
               { icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/sudhakar-ojha-66b264258/', color: 'bg-blue-600 text-white', hover: 'hover:bg-blue-600 hover:text-white', tooltip: 'bg-blue-600 text-white' },
-              { icon: Code, label: 'LeetCode', url: 'https://leetcode.com/u/sudhakarojha19/', color: 'bg-orange-400 text-white', hover: 'hover:bg-orange-400 hover:text-white', tooltip: 'bg-orange-400 text-white' },
-              { icon: Trophy, label: 'HackerRank', url: 'https://www.hackerrank.com/profile/sudhakarojha19', color: 'bg-green-600 text-white', hover: 'hover:bg-green-600 hover:text-white', tooltip: 'bg-green-600 text-white' }
+              // { icon: Code, label: 'LeetCode', url: 'https://leetcode.com/u/sudhakarojha19/', color: 'bg-orange-400 text-white', hover: 'hover:bg-orange-400 hover:text-white', tooltip: 'bg-orange-400 text-white' },
+              // { icon: Trophy, label: 'HackerRank', url: 'https://www.hackerrank.com/profile/sudhakarojha19', color: 'bg-green-600 text-white', hover: 'hover:bg-green-600 hover:text-white', tooltip: 'bg-green-600 text-white' }
             ].map((social, index) => (
               <a
                 key={index}

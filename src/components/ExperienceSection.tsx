@@ -18,6 +18,20 @@ const ExperienceSection: React.FC = () => {
       borderColor: 'border-green-400'
     },
     {
+      company: 'Learn&Build',
+      role: 'AWS Cloud Intern',
+      location: 'Jaipur, Rajasthan',
+      duration: 'July 2024 - August 2024',
+      achievements: [
+        'Worked on AWS services like EC2 and S3 and Relational database service',
+        'Learn to integrate the services with automation tools',
+        'Contribute in CICD project'
+      ],
+      technologies: ['Jenkins', 'Docker', 'AWS CLI', 'EC2', 'S3', 'RDS', 'Git&GitHub'],
+      highlightWord: 'Learn',
+      borderColor: 'border-red-400'
+    },
+    {
       company: 'CodeAlpha',
       role: 'Web development Project Intern',
       location: 'Lucknow, Uttar Pradesh',
@@ -30,20 +44,6 @@ const ExperienceSection: React.FC = () => {
       technologies: ['React.js', 'JavaScript', 'CSS', 'HTML'],
       highlightWord: 'Alpha',
       borderColor: 'border-yellow-400'
-    },
-    {
-      company: 'Learn&Build',
-      role: 'AWS Cloud Intern',
-      location: 'Jaipur',
-      duration: 'July 2024 - August 2024',
-      achievements: [
-        'Worked on AWS services like EC2 and S3 and Relational database service',
-        'Learn to integrate the services with automation tools',
-        'Contribute in CICD project'
-      ],
-      technologies: ['Jenkins', 'Docker', 'AWS CLI', 'EC2', 'S3', 'RDS', 'Git&GitHub'],
-      highlightWord: 'Learn',
-      borderColor: 'border-red-400'
     },
     {
       company: 'Learn&Build',

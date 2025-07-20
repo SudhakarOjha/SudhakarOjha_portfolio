@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 const TECHNOLOGIES = [
   'Python Automation',
-  'JavaScript Automation',
   'DevOps',
   'Gen AI',
   'Cloud Automation',
+  'JavaScript Automation',
 ];
 
 const TASKS: Record<string, Array<{ title: string; description?: string; githubUrl?: string; linkedinUrl?: string }>> = {
@@ -13,17 +13,17 @@ const TASKS: Record<string, Array<{ title: string; description?: string; githubU
     {
       title: 'Web Scrapping Using Python',
       description: 'Automated data extraction from websites using python scripts.',
-      githubUrl: 'https://github.com/yourusername/web-scraping-python', // Replace with your actual repo
+      githubUrl: 'https://github.com/SudhakarOjha/AajTak-webScrapping', // Updated with actual repo
     },
     {
       title: 'Send an Email with Python',
       description: 'Used python to successfully send an Email programatically',
-      githubUrl: 'https://github.com/yourusername/send-email-python', // Replace with your actual repo
+      githubUrl: 'https://github.com/SudhakarOjha/Lw_tasks/blob/main/send-email.py', // Updated with actual repo
     },
     {
       title: 'Send an SMS with python',
       description: 'Sent a text message using python and an SMS gateway/API',
-      githubUrl: 'https://github.com/yourusername/send-sms-python', // Replace with your actual repo
+      githubUrl: 'https://github.com/SudhakarOjha/Lw_tasks/blob/main/SEND-SMS-python.py', // Updated with actual repo
     },
     {
       title: 'Make a phone call with python',
@@ -114,14 +114,14 @@ const TASKS: Record<string, Array<{ title: string; description?: string; githubU
     {
       title: 'Gemini Expert Advisor',
       description: 'Built a custom Gen AI project using Gemini 2.5 flash model and Gradio for multi-domain advice.',
-      linkedinUrl: 'https://www.linkedin.com/in/your-linkedin-profile/', // Replace with actual LinkedIn post if available
-      githubUrl: 'https://github.com/yourusername/gemini-expert-advisor', // Replace with actual repo if available
+      linkedinUrl: 'https://www.linkedin.com/posts/sudhakar-ojha-66b264258_linuxworld-vimaldaga-promptengineering-activity-7347689335510454273-rQhb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9l3LMBP8OTGlFx7qY7e3Wc_QaQJ_cqcXs', // Updated with actual LinkedIn post
+      githubUrl: 'https://github.com/SudhakarOjha/personality_developer_GenAI_API_gradio', // Updated with actual repo
     },
     {
       title: 'News info Gemini (made with Gen AI + Web Scrapping)',
       description: 'A Gen AI-powered project for News informaton using Gemini API and web scrapping.',
       linkedinUrl: 'https://www.linkedin.com/in/your-linkedin-profile/', // Replace with actual LinkedIn post if available
-      githubUrl: 'https://github.com/yourusername/news-info-gemini', // Replace with actual repo if available
+      githubUrl: 'https://github.com/SudhakarOjha/AajTak-webScrapping/blob/main/AajTak-webScrapping.py', // Updated with actual repo
     },
   ],
   'Cloud Automation': [

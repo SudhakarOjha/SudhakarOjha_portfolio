@@ -10,7 +10,7 @@ const ProjectsSection: React.FC = () => {
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
       keyFeatures: ['Responsive design', 'Smooth animation', 'Professional UI'],
       liveDemo: 'https://your-portfolio-url.netlify.app', // Replace with your actual deployed URL
-      githubCode: 'https://github.com/SudhakarOjha/portfolio', // Replace with your actual GitHub repo
+      githubCode: 'https://github.com/SudhakarOjha/SudhakarOjha_portfolio', // Updated GitHub repo URL
       icon: Globe,
       color: 'purple',
       gradientBorder: 'from-purple-400 via-pink-400 to-purple-600'
@@ -34,7 +34,7 @@ const ProjectsSection: React.FC = () => {
       technologies: ['Javascript', 'Git/GitHub', 'Jenkins', 'Docker', 'CLI', 'AWS EC2'],
       keyFeatures: ['Automated testing & building via Jenkins', 'Pulled code from GitHub SCM', 'Deployed from source to AWS EC2'],
       liveDemo: 'https://your-cicd-pipeline-url.com', // Replace with your actual deployed URL
-      githubCode: 'https://www.linkedin.com/posts/sudhakar-ojha-66b264258_devops-ciabrcd-automation-activity-7348413824892358656-1u0G?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD9l3LMBP8OTGlFx7qY7e3Wc_QaQJ_cqcXs',
+      githubCode: 'https://github.com/SudhakarOjha/CodeAlpha_LibraryManagement', // Updated GitHub repo URL
       icon: GitBranch,
       color: 'green',
       gradientBorder: 'from-green-400 via-emerald-400 to-green-600'
@@ -180,6 +180,7 @@ const ProjectsSection: React.FC = () => {
                             
                             {/* Action Buttons */}
                             <div className="flex flex-col gap-3 lg:flex-shrink-0">
+                              {/*
                               <a
                                 href={project.liveDemo}
                                 target="_blank"
@@ -196,6 +197,7 @@ const ProjectsSection: React.FC = () => {
                                 Live Demo
                                 <ExternalLink className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                               </a>
+                              */}
                               {/* Add View on LinkedIn button for End-to-End Automated CI/CD Pipeline */}
                               {project.title === 'End-to-End Automated CI/CD Pipeline' && (
                                 <a
@@ -216,20 +218,23 @@ const ProjectsSection: React.FC = () => {
                                 href={project.githubCode}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`group flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/20 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 ${
-                                  project.title === 'Sudhakar Ojha Portfolio' 
-                                    ? 'hover:border-purple-400/50'
-                                    : project.title === 'Flask API-CI/CD'
-                                    ? 'hover:border-blue-400/50'
-                                    : 'hover:border-green-400/50'
-                                }`}
-                              >
-                                {project.title === 'Flask API-CI/CD' || project.title === 'End-to-End Automated CI/CD Pipeline' ? (
+                                className={`group flex items-center gap-2 px-6 py-3 
+                                    ${project.title === 'Flask API-CI/CD' 
+                                      ? 'bg-blue-600/90 border border-blue-400/50 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:bg-blue-700/90 hover:border-blue-500/70 shadow-lg' 
+                                      : 'bg-white/10 border border-white/20 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 ' + (project.title === 'Sudhakar Ojha Portfolio' ? 'hover:border-purple-400/50' : 'hover:border-green-400/50')
+                                    }`}
+                                >
+                                {project.title === 'End-to-End Automated CI/CD Pipeline' ? (
+                                  <>
+                                    <Github className="w-4 h-4" />
+                                    View on GitHub
+                                  </>
+                                ) : project.title === 'Flask API-CI/CD' ? (
                                   <>
                                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                                     </svg>
-                                    View Code
+                                    View on LinkedIn
                                   </>
                                 ) : (
                                   <>
