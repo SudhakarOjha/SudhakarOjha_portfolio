@@ -91,7 +91,11 @@ const HeroSection: React.FC = () => {
         {/* Right Section - Profile Image */}
         <div className="flex justify-center lg:justify-end">
           <div className="relative group">
-            <div className="w-80 h-80 rounded-2xl bg-gradient-to-br from-blue-400 via-purple-400 to-green-400 p-1 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] group-hover:scale-105">
+            {/* OUTER LIGHTING BORDER */}
+            <div className="absolute -inset-6 z-0 pointer-events-none animate-pulse rounded-2xl border-4 border-blue-400/60 shadow-[0_0_40px_10px_rgba(59,130,246,0.4)]" style={{boxShadow:'0 0 40px 10px rgba(139,92,246,0.3), 0 0 80px 20px rgba(16,185,129,0.2)'}}></div>
+            {/* INNER LIGHTING BORDER */}
+            <div className="absolute -inset-2 z-10 pointer-events-none rounded-2xl border-2 border-purple-400/80"></div>
+            <div className="w-80 h-80 rounded-2xl bg-gradient-to-br from-blue-400 via-purple-400 to-green-400 p-1 transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(59,130,246,0.5)] group-hover:scale-105 relative z-20">
               <div className="w-full h-full bg-gray-800 rounded-2xl overflow-hidden">
                 <img
                   src={profileImage}
@@ -100,7 +104,7 @@ const HeroSection: React.FC = () => {
                 />
               </div>
             </div>
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-green-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-400/20 via-purple-400/20 to-green-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-30"></div>
           </div>
         </div>
       </div>
