@@ -79,7 +79,14 @@ const ExperienceSection: React.FC = () => {
 
         <div className="space-y-12">
           {experiences.map((exp, index) => (
-            <div key={index} className={`group bg-white/5 backdrop-blur-sm rounded-xl p-8 border-2 ${exp.borderColor} hover:scale-105 transition-all duration-300`}>
+            <div key={index} className={`relative group bg-white/5 backdrop-blur-sm rounded-xl p-8 border-2 ${exp.borderColor} hover:scale-105 transition-all duration-300 overflow-visible`}>
+              {/* Moving border light */}
+              <div className="pointer-events-none absolute inset-0 rounded-xl z-10 animate-border-move">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-80 blur-sm" style={{animation: 'border-move-x 2s linear infinite'}}></div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-80 blur-sm" style={{animation: 'border-move-x 2s linear infinite 1s'}}></div>
+                <div className="absolute top-0 left-0 h-full w-1 bg-gradient-to-b from-transparent via-white to-transparent opacity-80 blur-sm" style={{animation: 'border-move-y 2s linear infinite'}}></div>
+                <div className="absolute top-0 right-0 h-full w-1 bg-gradient-to-b from-transparent via-white to-transparent opacity-80 blur-sm" style={{animation: 'border-move-y 2s linear infinite 1s'}}></div>
+              </div>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Company Info */}
                 <div className="space-y-4">

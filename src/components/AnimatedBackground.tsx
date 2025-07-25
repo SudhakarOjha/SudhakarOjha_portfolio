@@ -13,6 +13,7 @@ const AnimatedBackground: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>();
+  const lastScrollY = useRef(window.scrollY);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -103,7 +104,6 @@ const AnimatedBackground: React.FC = () => {
     };
 
     window.addEventListener('resize', handleResize);
-
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);

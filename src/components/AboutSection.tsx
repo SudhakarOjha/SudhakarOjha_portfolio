@@ -64,17 +64,21 @@ const AboutSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Description */}
           <div className="space-y-6">
-            <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10">
-              <p className="text-lg text-gray-300 leading-relaxed">
-                I'm an aspiring software engineer currently pursuing academics in Computer Science and Engineering. 
-                With a strong foundation in DevOps, Cloud, and Applied Machine Learning, I thrive on 
-                building real-world applications that make a difference.
-              </p>
-              <p className="text-lg text-gray-300 leading-relaxed mt-4">
-                From voice bots to AI agents, I enjoy creating intelligent solutions that solve complex problems. 
-                My passion for automation drives me to build systems that not only work efficiently but also 
-                continuously improve themselves.
-              </p>
+            <div className="relative bg-gradient-to-br from-[#18181b]/80 via-[#23272f]/80 to-[#0a0a0a]/80 rounded-2xl p-8 border-2 border-cyan-400/40 shadow-lg overflow-hidden animate-about-fade-in">
+              {/* Neon border effect */}
+              <div className="pointer-events-none absolute -inset-1.5 rounded-2xl border-2 border-cyan-400 opacity-40 blur-[3px] animate-neon-blink z-0"></div>
+              {/* Shimmer animation */}
+              <div className="pointer-events-none absolute left-0 top-0 w-full h-full z-10 animate-about-shimmer" style={{background: 'linear-gradient(120deg, transparent 60%, rgba(0,255,255,0.08) 80%, transparent 100%)'}}></div>
+              <div className="relative z-20">
+                <p className="text-lg md:text-xl text-cyan-100 font-medium leading-relaxed font-mono animate-fade-in">
+                  I'm an aspiring software engineer currently pursuing academics in Computer Science and Engineering.<br/>
+                  With a strong foundation in DevOps, Cloud, and Applied Machine Learning, I thrive on building real-world applications that make a difference.
+                </p>
+                <p className="text-lg md:text-xl text-cyan-100 font-medium leading-relaxed font-mono mt-4 animate-fade-in delay-200">
+                  From voice bots to AI agents, I enjoy creating intelligent solutions that solve complex problems.<br/>
+                  My passion for automation drives me to build systems that not only work efficiently but also continuously improve themselves.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -83,8 +87,20 @@ const AboutSection: React.FC = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className={`group bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl ${getColorClasses(feature.color)}`}
+                className={`relative group bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl overflow-visible ${getColorClasses(feature.color)}`}
               >
+                {/* Neon border background */}
+                <div
+                  className={`absolute -inset-1.5 -z-10 rounded-2xl pointer-events-none blur-sm opacity-60 animate-pulse`}
+                  style={{
+                    background: feature.color === 'blue'
+                      ? 'linear-gradient(90deg, #3b82f6 0%, #06b6d4 100%)'
+                      : feature.color === 'green'
+                      ? 'linear-gradient(90deg, #22d3ee 0%, #22c55e 100%)'
+                      : 'linear-gradient(90deg, #a78bfa 0%, #f472b6 100%)',
+                    border: '2px solid transparent',
+                  }}
+                ></div>
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-white/10 rounded-lg">
                     <feature.icon className="w-6 h-6 text-white" />

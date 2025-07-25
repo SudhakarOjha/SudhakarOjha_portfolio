@@ -74,7 +74,24 @@ const ProjectsSection: React.FC = () => {
 
   return (
     <section id="projects" className="py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto relative">
+        {/* Sparkling background effect */}
+        <div className="pointer-events-none absolute inset-0 z-0">
+          {[...Array(24)].map((_, i) => (
+            <span
+              key={i}
+              className="absolute rounded-full bg-cyan-300 opacity-60 animate-sparkle"
+              style={{
+                left: `${Math.random() * 98}%`,
+                top: `${Math.random() * 98}%`,
+                width: `${8 + Math.random() * 12}px`,
+                height: `${8 + Math.random() * 12}px`,
+                filter: 'blur(1.5px)',
+                animationDelay: `${Math.random() * 2}s`,
+              }}
+            ></span>
+          ))}
+        </div>
         <div className="text-center mb-16">
           <div className="relative flex flex-col items-center justify-center py-8">
             {/* Animated stars/particles background */}
@@ -103,16 +120,21 @@ const ProjectsSection: React.FC = () => {
 
           <div className="space-y-12">
             {projects.map((project, index) => (
-              <div key={index} className="relative flex gap-8 group">
+              <div key={index} className="relative group flex gap-8 project-float-parent">
                 {/* Timeline dot */}
                 <div className={`relative z-10 flex items-center justify-center w-16 h-16 rounded-full border-4 ${getColorClasses(project.color)} group-hover:scale-110 transition-all duration-300`}>
                   <project.icon className="w-8 h-8 text-white" />
                 </div>
 
                 {/* Project content with gradient neon border */}
-                <div className={`flex-1 bg-white/5 backdrop-blur-sm rounded-xl p-8 border-[0.25px] border-transparent bg-gradient-to-r ${project.gradientBorder} bg-clip-border hover:scale-105 transition-all duration-300 relative`}>
+                <div className={
+                  `flex-1 bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-[#00ffff]/60 hover:scale-105 transition-all duration-300 relative overflow-visible animate-project-float neon-blink-border`
+                }>
+                  {/* Enhanced Neon border background */}
+                  <div className="pointer-events-none absolute -inset-2 rounded-2xl border-2 border-[#00ffff] opacity-80 blur-[6px] animate-neon-blink z-0" style={{boxShadow: 'none'}}></div>
+                  <div className="pointer-events-none absolute -inset-0.5 rounded-2xl border border-[#00ffff] opacity-90 blur-[2px] animate-neon-blink z-0" style={{boxShadow: 'none'}}></div>
                   {/* Inner content with dark background */}
-                  <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg p-6 -m-0.25">
+                  <div className="bg-gray-900/90 backdrop-blur-sm rounded-lg p-6 -m-0.25 relative z-10">
                     <div className="space-y-4">
                       <h3 className="text-2xl font-bold text-white">{project.title}</h3>
                       

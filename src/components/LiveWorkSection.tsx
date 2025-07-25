@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Github, Linkedin } from 'lucide-react';
 
 const TECHNOLOGIES = [
   'Python Automation',
@@ -227,32 +228,38 @@ const LiveWorkSection: React.FC = () => {
               {TASKS[tech].length === 0 ? (
                 <div className="text-gray-400 italic">No tasks added yet for this technology.</div>
               ) : (
-                <ul className="list-disc list-inside text-left space-y-4 text-gray-200">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-gray-200">
                   {TASKS[tech].map((task, idx) => (
-                    <li key={idx} className={`relative rounded-lg p-4 ${getTaskBg(tech)}`}>
-                      {/* Action buttons in top right, flex row if both exist */}
-                      {(task.githubUrl || task.linkedinUrl) && (
-                        <div className="absolute top-4 right-4 flex flex-row gap-2 z-10">
-                          {task.githubUrl && (
-                            <a
-                              href={task.githubUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="px-4 py-1 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-full font-medium text-sm shadow hover:scale-105 transition-transform duration-200"
-                            >
-                              View Code on GitHub
-                            </a>
-                          )}
-                          {task.linkedinUrl && (
-                            <a
-                              href={task.linkedinUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="px-4 py-1 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full font-medium text-sm shadow hover:scale-105 transition-transform duration-200"
-                            >
-                              View on Linkedin
-                            </a>
-                          )}
+                    <li
+                      key={idx}
+                      className={`relative flex flex-col justify-between items-start rounded-xl p-5 aspect-square min-h-[220px] ${getTaskBg(tech)} shadow-lg transition-transform duration-200 hover:scale-105`}
+                    >
+                      {/* LinkedIn icon in top right */}
+                      {task.linkedinUrl && (
+                        <div className="absolute top-3 right-3 z-10">
+                          <a
+                            href={task.linkedinUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-9 h-9 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 text-white shadow hover:scale-110 hover:bg-blue-600 transition-all duration-200"
+                            title="View on LinkedIn"
+                          >
+                            <Linkedin className="w-5 h-5" />
+                          </a>
+                        </div>
+                      )}
+                      {/* GitHub icon in bottom right */}
+                      {task.githubUrl && (
+                        <div className="absolute bottom-3 right-3 z-10">
+                          <a
+                            href={task.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-9 h-9 flex items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-purple-500 text-white shadow hover:scale-110 hover:bg-pink-600 transition-all duration-200"
+                            title="View Code on GitHub"
+                          >
+                            <Github className="w-5 h-5" />
+                          </a>
                         </div>
                       )}
                       <div className="flex items-center gap-2 mt-1 mb-1">
@@ -262,7 +269,7 @@ const LiveWorkSection: React.FC = () => {
                         </span>
                       </div>
                       {task.description && (
-                        <div className="text-base font-bold text-gray-800 mt-2 ml-1 pr-36">
+                        <div className="text-base font-bold text-gray-800 mt-2 ml-1">
                           {task.description}
                         </div>
                       )}
